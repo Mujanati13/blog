@@ -54,7 +54,7 @@ const NavSidebar = ({ openSidebar = false, closeNavSidebar, navSetup, changeThem
                                     {each.label}
                                 </a>
                                 :
-                                <NavCatergoryDD label={each.label} openDD={openDD} setOpenDD={() => setOpenDD(!openDD)} />
+                                <NavCatergoryDD label={each.label} openDD={openDD} setOpenDD={() => setOpenDD(!openDD)} key={each.label} />
                         ))
                     }
                     {
@@ -99,7 +99,7 @@ const NavSidebar = ({ openSidebar = false, closeNavSidebar, navSetup, changeThem
                     {
                         navSetup.socials && <>
                             <p className='font-light'>Follow us : </p> {
-                                navSetup.socials.map((each: iNavSocials) => (
+                                navSetup.socials.map((each: iNavSocials, i: any) => (
                                     <a href={each.link} key={each.link} target="_blank" rel="noopener noreferrer" className='text-[28px] inline-block mr-5 mt-2'>{each.icon}</a>
                                 ))
                             }
@@ -130,4 +130,4 @@ const NavSidebar = ({ openSidebar = false, closeNavSidebar, navSetup, changeThem
     )
 }
 
-export default NavSidebar
+export default NavSidebar;

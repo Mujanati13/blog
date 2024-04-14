@@ -24,6 +24,7 @@ const CenteredNavbar = ({
   return (
     <div className={"container"}>
       <div className="flex items-center justify-between px-3">
+        {/* Left section with menu toggle, search icon, and share button */}
         <div className="flex" style={{ width: "120px" }}>
           <div
             className={combineClasses(
@@ -54,6 +55,7 @@ const CenteredNavbar = ({
           </div>
         </div>
 
+        {/* Logo section */}
         <LinkTo href="/" passHref={true}>
           {logo ? (
             logo.type === LogoType.IMAGE ? (
@@ -75,6 +77,7 @@ const CenteredNavbar = ({
           )}
         </LinkTo>
 
+        {/* Right section with social media links */}
         <div className="flex justify-end" style={{ width: "120px" }}>
           {socials &&
             socials.map((each: iNavSocials, i: any) => (
@@ -82,7 +85,7 @@ const CenteredNavbar = ({
                 href={each.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={each.link}
+                key={each.link} 
                 className={combineClasses(
                   "dark:text-white text-black text-[24px] d-inline-block",
                   i === socials.length - 1 ? "ml-3" : "mx-3"
@@ -93,13 +96,15 @@ const CenteredNavbar = ({
             ))}
         </div>
       </div>
+      
+      {/* Navigation links */}
       <div className="flex justify-center items-center font-regular text-[14px] d-sm-none mt-3">
         {navLinks.map((each: iNavLink, i: any) =>
           each.type !== "dropdown" ? (
             !each.newTab ? (
               <LinkTo
                 href={each.path}
-                key={i}
+                key={i} 
                 passHref={true}
                 className="mx-2 font-normal"
               >
@@ -108,7 +113,7 @@ const CenteredNavbar = ({
             ) : (
               <a
                 href={each.path}
-                key={each.path}
+                key={each.path} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mx-2 flex-wrap font-normal	"
@@ -122,6 +127,7 @@ const CenteredNavbar = ({
               openDD={openDD}
               setOpenDD={() => setOpenDD(!openDD)}
               floating
+              key={each.label} 
             />
           )
         )}

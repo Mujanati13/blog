@@ -43,11 +43,11 @@ const SimpleNavbar = ({ openSearch, changeTheme, toggleSideMenu, openSidebar = f
                 <LinkTo href={each.path} key={i} passHref className='mx-2'>
                   {each.label}
                 </LinkTo> :
-                <a href={each.path} key={each.path + 1} target="_blank" rel="noopener noreferrer" className='d-block mx-2 flex-wrap'>
+                <a href={each.path} key={each.path} target="_blank" rel="noopener noreferrer" className='d-block mx-2 flex-wrap'>
                   {each.label}
                 </a>
                 :
-                <NavCatergoryDD label={each.label} openDD={openDD} setOpenDD={() => setOpenDD(!openDD)} floating />
+                <NavCatergoryDD label={each.label} openDD={openDD} setOpenDD={() => setOpenDD(!openDD)} floating key={each.label} />
             ))
           }
           {
